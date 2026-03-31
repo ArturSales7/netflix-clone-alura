@@ -1,0 +1,530 @@
+/* ===== RESET E BASE ===== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #141414;
+  font-family: "Netflix Sans", "Helvetica Neue", Arial, sans-serif;
+  color: #ffffff;
+  min-height: 100vh;
+  transition:
+    background-color 0.4s ease,
+    color 0.4s ease;
+}
+
+/* ===== LAYOUT PRINCIPAL ===== */
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  gap: 40px;
+}
+
+/* ===== TÍTULO ===== */
+
+h1 {
+  font-size: 3.5rem;
+  font-weight: 400;
+  letter-spacing: 2px;
+  color: #e5e5e5;
+  transition: color 0.4s ease;
+}
+
+/* ===== LISTA DE PERFIS ===== */
+
+.profiles {
+  display: flex;
+  gap: 24px;
+  list-style: none;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* ===== ITEM DO PERFIL ===== */
+
+.profile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ===== BOTÃO DO PERFIL ===== */
+
+.profile-select {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  transition: transform 0.2s ease;
+}
+
+.profile-select:hover {
+  transform: scale(1.08);
+}
+
+/* ===== FIGURE ===== */
+
+.profile figure {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+/* ===== IMAGEM DO PERFIL ===== */
+
+.profile img {
+  width: 160px;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 4px;
+  border: 3px solid transparent;
+  transition: border-color 0.2s ease;
+}
+
+.profile-select:hover img {
+  border-color: #ffffff;
+}
+
+.profile,
+.profile-select {
+  cursor: pointer;
+}
+
+/* ===== NOME DO PERFIL ===== */
+
+.profile figcaption {
+  font-size: 1.1rem;
+  color: #808080;
+  transition:
+    color 0.2s ease,
+    color 0.4s ease;
+}
+
+.profile-select:hover figcaption {
+  color: #e5e5e5;
+}
+
+/* ===== BOTÃO DE TEMA ===== */
+
+/* ===== BOTÃO DE TEMA ===== */
+
+#theme-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.toggle-icon {
+  font-size: 1.2rem;
+}
+
+.toggle-track {
+  width: 48px;
+  height: 26px;
+  background-color: #555;
+  border-radius: 999px;
+  position: relative;
+  transition: background-color 0.4s ease;
+}
+
+.toggle-thumb {
+  width: 20px;
+  height: 20px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  transition: left 0.3s ease;
+}
+
+body.light .toggle-track {
+  background-color: #e50914;
+}
+
+body.light .toggle-thumb {
+  left: 25px;
+}
+
+/* ===== LIGHT MODE ===== */
+
+body.light {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+body.light h1 {
+  color: #000000;
+}
+
+body.light .profile figcaption {
+  color: #333333;
+}
+
+body.light .profile button:hover figcaption {
+  color: #000000;
+}
+
+body.light .profile button:hover img {
+  border-color: #000000;
+}
+
+/* ===== RESPONSIVIDADE ===== */
+
+/* Tablet */
+@media (max-width: 900px) {
+  h1 {
+    font-size: 2.8rem;
+  }
+
+  .profile img {
+    width: 130px;
+    height: 130px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  main {
+    padding: 20px;
+    width: 100%;
+  }
+
+  h1 {
+    font-size: 2rem;
+    text-align: center;
+    width: 100%;
+  }
+
+  .profiles {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .profile img {
+    width: 110px;
+    height: 110px;
+  }
+}
+
+/* ===== BOTÃO DE EDIÇÃO (EDIT BUTTON) ===== */
+
+.edit-button {
+  margin: 32px auto 0;
+  padding: 12px 24px;
+  background-color: transparent;
+  border: 2px solid #808080;
+  color: #ffffff;
+  font-size: 1.5rem;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  animation: slideUp 0.4s ease;
+}
+
+.edit-button:hover {
+  border-color: #e5e5e5;
+  transform: scale(1.1);
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===== ÍCONE DE EDIÇÃO (EDIT ICON) ===== */
+
+.profile {
+  position: relative;
+}
+
+.edit-icon {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  opacity: 0;
+  transition:
+    opacity 0.2s ease,
+    background-color 0.2s ease;
+  background-color: rgba(0, 0, 0, 0.65);
+  border-radius: 4px;
+  cursor: pointer;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.profile.edit-mode .edit-icon {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.edit-icon:hover {
+  background-color: rgba(0, 0, 0, 0.85);
+}
+
+.edit-icon img,
+.edit-button img {
+  width: 36px;
+  height: 36px;
+  display: block;
+  object-fit: contain;
+  pointer-events: none;
+  filter: invert(1); /* Branco no tema escuro */
+}
+
+body.light .edit-icon img,
+body.light .edit-button img {
+  filter: invert(0); /* Preto no tema claro */
+}
+
+/* ===== OVERLAY ===== */
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 1; /* Mantém o overlay atrás do ícone de edição */
+  transition: opacity 0.3s ease;
+}
+
+.profile .edit-icon,
+.profile.edit-mode .edit-icon {
+  z-index: 2;
+  cursor: pointer;
+}
+
+.overlay.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* ===== MODAL DE EDIÇÃO ===== */
+
+.edit-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #222222;
+  border: 1px solid #404040;
+  border-radius: 8px;
+  padding: 40px;
+  z-index: 1000;
+  max-width: 500px;
+  width: 90%;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.8);
+  transition: all 0.3s ease;
+}
+
+.edit-modal.hidden {
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, -50%) scale(0.8);
+}
+
+.edit-modal h2 {
+  margin-bottom: 24px;
+  font-size: 1.8rem;
+  color: #e5e5e5;
+}
+
+/* ===== FORM GROUP ===== */
+
+.form-group {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group label {
+  font-size: 0.95rem;
+  color: #a0a0a0;
+  font-weight: 500;
+}
+
+.form-group input[type="text"] {
+  padding: 12px;
+  background-color: #333333;
+  border: 1px solid #404040;
+  border-radius: 4px;
+  color: #ffffff;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.form-group input[type="text"]:focus {
+  outline: none;
+  border-color: #e50914;
+}
+
+/* ===== IMAGE UPLOAD ===== */
+
+.image-upload {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+}
+
+#profile-preview {
+  width: 140px;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 4px;
+  border: 2px solid #404040;
+  background-color: #333333;
+}
+
+#profile-image {
+  display: none;
+}
+
+.file-label {
+  padding: 10px 20px;
+  background-color: #404040;
+  border: 1px solid #505050;
+  border-radius: 4px;
+  cursor: pointer;
+  color: #ffffff;
+  text-align: center;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+}
+
+.file-label:hover {
+  background-color: #505050;
+  border-color: #e50914;
+}
+
+/* ===== FORM BUTTONS ===== */
+
+.form-buttons {
+  display: flex;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.btn-save,
+.btn-cancel {
+  flex: 1;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-save {
+  background-color: #e50914;
+  color: #ffffff;
+}
+
+.btn-save:hover {
+  background-color: #f20916;
+}
+
+.btn-cancel {
+  background-color: #404040;
+  color: #ffffff;
+}
+
+.btn-cancel:hover {
+  background-color: #505050;
+}
+
+/* ===== LIGHT MODE - EDIÇÃO ===== */
+
+body.light .edit-button {
+  border-color: #666666;
+}
+
+body.light .edit-button:hover {
+  border-color: #000000;
+}
+
+body.light .edit-modal {
+  background-color: #f0f0f0;
+  border-color: #e0e0e0;
+}
+
+body.light .edit-modal h2 {
+  color: #000000;
+}
+
+body.light .form-group label {
+  color: #555555;
+}
+
+body.light .form-group input[type="text"] {
+  background-color: #ffffff;
+  border-color: #e0e0e0;
+  color: #000000;
+}
+
+body.light .form-group input[type="text"]:focus {
+  border-color: #e50914;
+}
+
+body.light #profile-preview {
+  border-color: #e0e0e0;
+  background-color: #f9f9f9;
+}
+
+body.light .file-label {
+  background-color: #e0e0e0;
+  border-color: #d0d0d0;
+  color: #000000;
+}
+
+body.light .file-label:hover {
+  background-color: #d0d0d0;
+}
+
+body.light .btn-cancel {
+  background-color: #e0e0e0;
+  color: #000000;
+}
+
+body.light .btn-cancel:hover {
+  background-color: #d0d0d0;
+}

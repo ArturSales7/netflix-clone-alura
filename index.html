@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="index.css" />
+    <title>Netflix</title>
+  </head>
+  <body>
+    <main>
+      <button id="theme-toggle" type="button" aria-label="Alternar tema">
+        <span class="toggle-icon">🌙</span>
+        <div class="toggle-track">
+          <div class="toggle-thumb"></div>
+        </div>
+      </button>
+      <h1>Quem está assistindo?</h1>
+
+      <section aria-label="Seleção de perfis">
+        <ul class="profiles">
+          <li class="profile">
+            <button class="profile-select" type="button">
+              <figure>
+                <img src="assets/perfil-1.jpg" alt="Avatar do Perfil 1" />
+                <figcaption>Perfil 1</figcaption>
+              </figure>
+            </button>
+            <div class="edit-icon" aria-label="Editar perfil">
+              <img src="assets/icon.svg" alt="Editar perfil" />
+            </div>
+          </li>
+          <li class="profile">
+            <button class="profile-select" type="button">
+              <figure>
+                <img src="assets/perfil-2.jpg" alt="Avatar do Perfil 2" />
+                <figcaption>Perfil 2</figcaption>
+              </figure>
+            </button>
+            <div class="edit-icon" aria-label="Editar perfil">
+              <img src="assets/icon.svg" alt="Editar perfil" />
+            </div>
+          </li>
+          <li class="profile">
+            <button class="profile-select" type="button">
+              <figure>
+                <img src="assets/perfil-3.jpg" alt="Avatar do Perfil 3" />
+                <figcaption>Perfil 3</figcaption>
+              </figure>
+            </button>
+            <div class="edit-icon" aria-label="Editar perfil">
+              <img src="assets/icon.svg" alt="Editar perfil" />
+            </div>
+          </li>
+          <li class="profile">
+            <button class="profile-select" type="button">
+              <figure>
+                <img src="assets/perfil-4.jpg" alt="Avatar do Perfil 4" />
+                <figcaption>Perfil 4</figcaption>
+              </figure>
+            </button>
+            <div class="edit-icon" aria-label="Editar perfil">
+              <img src="assets/icon.svg" alt="Editar perfil" />
+            </div>
+          </li>
+        </ul>
+        <button
+          id="edit-btn"
+          type="button"
+          class="edit-button"
+          aria-label="Editar perfis"
+        >
+          <img src="assets/icon.svg" alt="Editar perfis" />
+        </button>
+      </section>
+
+      <!-- Overlay e Modal de Edição -->
+      <div id="overlay" class="overlay hidden"></div>
+      <div id="edit-modal" class="edit-modal hidden">
+        <div class="edit-modal-content">
+          <h2>Editar Perfil</h2>
+          <form id="edit-form">
+            <div class="form-group">
+              <label for="profile-name">Nome do Perfil:</label>
+              <input
+                type="text"
+                id="profile-name"
+                placeholder="Digite o nome do perfil"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="profile-image">Imagem do Perfil:</label>
+              <div class="image-upload">
+                <img id="profile-preview" src="" alt="Pré-visualização" />
+                <input type="file" id="profile-image" accept="image/*" />
+                <label for="profile-image" class="file-label"
+                  >Selecionar Imagem</label
+                >
+              </div>
+            </div>
+
+            <div class="form-buttons">
+              <button type="submit" class="btn-save">Salvar</button>
+              <button type="button" class="btn-cancel" id="cancel-edit">
+                Cancelar
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </main>
+    <script src="index.js"></script>
+  </body>
+</html>
