@@ -15,12 +15,11 @@ const perfilArmazenado = localStorage.getItem("perfis");
 const perfis = perfilArmazenado
   ? JSON.parse(perfilArmazenado)
   : [
-      { id: 0, nome: "Perfil 1", imagem: "assets/perfil-1.jpg" },
-      { id: 1, nome: "Perfil 2", imagem: "assets/perfil-2.jpg" },
-      { id: 2, nome: "Perfil 3", imagem: "assets/perfil-3.jpg" },
-      { id: 3, nome: "Perfil 4", imagem: "assets/perfil-4.jpg" },
+      { id: 0, nome: "Perfil 1", imagem: "https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png" },
+      { id: 1, nome: "Perfil 2", imagem: "https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png" },
+      { id: 2, nome: "Perfil 3", imagem: "https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png" },
+      { id: 3, nome: "Perfil 4", imagem: "https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png" },
     ];
-
 // Variáveis de controle
 let modoEdicao = false;
 let perfilEmEdicao = null;
